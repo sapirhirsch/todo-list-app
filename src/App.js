@@ -31,6 +31,10 @@ const App = () => {
         setTasks(tasks.filter((task) => task.id !== id));
     };
 
+    const deleteAllTasks = () => {
+        setTasks([]);
+    };
+
     const toggleReminder = (id) => {
         setTasks(
             tasks.map((task) =>
@@ -51,7 +55,12 @@ const App = () => {
 
     return (
         <div className='container'>
-            <Header onAdd={() => changeShowAddTask()} showAdd={showAddTask} />
+            <Header
+                onAdd={() => changeShowAddTask()}
+                showAdd={showAddTask}
+                onClear={deleteAllTasks}
+                tasksLength={tasks.length}
+            />
             {showAddTask && (
                 <AddTask onAdd={addTask} onSubmitForm={changeShowAddTask} />
             )}
