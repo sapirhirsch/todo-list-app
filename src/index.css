@@ -59,6 +59,10 @@ body {
   width: 100%;
 }
 
+.tasks {
+  list-style-type: none;
+}
+
 .task {
   background: #f4f4f4;
   margin: 5px;

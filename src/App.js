@@ -53,6 +53,15 @@ const App = () => {
         setShowAddTask(showAddTaskValue);
     };
 
+    const changeTaskOrder = (result) => {
+        if (!result.destination) return;
+        const items = Array.from(tasks);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);
+
+        setTasks(items);
+    };
+
     return (
         <div className='container'>
             <Header
@@ -71,6 +80,7 @@ const App = () => {
                     tasks={tasks}
                     onDelete={deleteTask}
                     onToggle={toggleReminder}
+                    onChangeTaskOrder={changeTaskOrder}
                 />
             )}
         </div>

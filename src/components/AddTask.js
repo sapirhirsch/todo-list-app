@@ -54,6 +54,7 @@ const AddTask = ({ onAdd, onSubmitForm }) => {
                 className='btn btn-block'
                 type='submit'
                 value='save Task'
+                disabled={text === '' || day === ''}
             ></input>
         </form>
     );
