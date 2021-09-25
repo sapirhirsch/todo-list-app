@@ -35,11 +35,20 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                         className='faCheck'
                         disabled={text === '' || day === ''}
                         onClick={(e) => onSubmit(e)}
+                        style={{
+                            position: 'absolute',
+                            right: '150px',
+                            transform: 'scale(1.45)',
+                        }}
                     >
                         <FaCheck />
                     </button>
                     <FaTimes
-                        style={{ color: 'red', cursor: 'pointer' }}
+                        style={{
+                            color: 'red',
+                            position: 'absolute',
+                            right: '125px',
+                        }}
                         onClick={() => onDelete(task.id)}
                     />
                 </h3>
@@ -61,9 +70,20 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                 onDoubleClick={() => onToggle(task.id)}
             >
                 <h3>
-                    {task.text} <FaPen onClick={onPressEdit} />
+                    {task.text}{' '}
+                    <FaPen
+                        onClick={onPressEdit}
+                        style={{
+                            position: 'absolute',
+                            right: '150px',
+                        }}
+                    />
                     <FaTimes
-                        style={{ color: 'red', cursor: 'pointer' }}
+                        style={{
+                            color: 'red',
+                            position: 'absolute',
+                            right: '125px',
+                        }}
                         onClick={() => onDelete(task.id)}
                     />
                 </h3>
