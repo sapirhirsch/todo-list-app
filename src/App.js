@@ -96,11 +96,13 @@ const App = () => {
             {showAddTask && (
                 <AddTask onAdd={addTask} onSubmitForm={changeShowAddTask} />
             )}
-            <ToolsBar
-                tasksLength={tasks.length}
-                changeReminder={changeReminderToTasks}
-                reminderValue={checkReminderValue()}
-            />
+            {tasks.length > 0 && (
+                <ToolsBar
+                    tasksLength={tasks.length}
+                    changeReminder={changeReminderToTasks}
+                    reminderValue={checkReminderValue()}
+                />
+            )}
             {tasks.length === 0 ? (
                 <h3>no tasks to show</h3>
             ) : (
