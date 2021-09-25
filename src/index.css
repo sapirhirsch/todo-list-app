@@ -132,6 +132,36 @@ body {
   height: 20px;
 }
 
+.faCheck{
+  color:green;
+  border: none;
+}
+
+.faCheck:disabled{
+  color: rgb(144, 221, 144);
+  cursor: default;
+  border: none;
+}
+
+.edit-h3{
+  width: 70%;
+  height: 35px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 19px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.edit-p{
+  width: 70%;
+  height: 25px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
 footer {
   margin-top: 30px;
   text-align: center;

@@ -36,6 +36,13 @@ const App = () => {
         setTasks([]);
     };
 
+    const editTask = (id, text, day) => {
+        const array1 = tasks.map((task) =>
+            task.id === id ? { ...task, text, day } : task
+        );
+        setTasks(array1);
+    };
+
     const toggleReminder = (id) => {
         setTasks(
             tasks.map((task) =>
@@ -102,6 +109,7 @@ const App = () => {
                     onDelete={deleteTask}
                     onToggle={toggleReminder}
                     onChangeTaskOrder={changeTaskOrder}
+                    onEdit={editTask}
                 />
             )}
         </div>

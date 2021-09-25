@@ -1,7 +1,7 @@
 import Task from './Task';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-const Tasks = ({ tasks, onDelete, onToggle, onChangeTaskOrder }) => {
+const Tasks = ({ tasks, onDelete, onToggle, onChangeTaskOrder, onEdit }) => {
     return (
         <DragDropContext onDragEnd={onChangeTaskOrder}>
             <Droppable droppableId='tasks'>
@@ -28,6 +28,7 @@ const Tasks = ({ tasks, onDelete, onToggle, onChangeTaskOrder }) => {
                                             task={task}
                                             onDelete={onDelete}
                                             onToggle={onToggle}
+                                            onEdit={onEdit}
                                         />
                                     </li>
                                 )}
