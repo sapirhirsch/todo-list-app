@@ -27,6 +27,13 @@ body {
   margin-bottom: 5px;
 }
 
+.tool-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
 .btn {
   display: inline-block;
   background: #000;
@@ -57,6 +64,16 @@ body {
 .btn-block {
   display: block;
   width: 100%;
+}
+
+.txt-button{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: arial, sans-serif;
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .tasks {

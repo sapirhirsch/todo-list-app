@@ -18,7 +18,6 @@ const Header = ({ title, onAdd, showAdd, onClear, tasksLength }) => {
                     onClick={onAdd}
                 />
             </header>
-            <h4>tasks: {tasksLength}</h4>
         </>
     );
 };
