@@ -11,6 +11,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
     };
 
     const onSubmit = (e) => {
+        e.preventDefault();
         onEdit(task.id, text, day);
         setIsUserEdit(false);
     };
@@ -38,8 +39,8 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                     ></input>
                     <button
                         className='faCheck'
+                        onClick={(e) => onSubmit(e)}
                         disabled={text === '' || day === ''}
-                        onClick={() => onSubmit()}
                         style={{
                             position: 'absolute',
                             right: '60px',
@@ -90,12 +91,14 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                         style={{
                             position: 'absolute',
                             right: '35px',
+                            top: '13px',
                         }}
                     />
                     <FaTrashAlt
                         style={{
                             position: 'absolute',
                             right: '10px',
+                            top: '13px',
                         }}
                         onClick={() => onDelete(task.id)}
                     />

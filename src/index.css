@@ -71,7 +71,7 @@ body {
   border: none;
   padding: 0!important;
   font-family: arial, sans-serif;
-  color: rgb(0, 0, 0);
+  color: green;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -85,6 +85,8 @@ body {
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .task.reminder {
@@ -94,6 +96,7 @@ body {
 .task h3 {
   align-items: center;
   justify-content: space-between;
+  border-right: 40px solid #f4f4f4;
 }
 
 .add-form {
