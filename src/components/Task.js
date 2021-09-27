@@ -1,4 +1,4 @@
-import { FaTimes, FaPen, FaCheck } from 'react-icons/fa';
+import { FaTimes, FaPen, FaCheck, FaTrashAlt } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Task = ({ task, onDelete, onToggle, onEdit }) => {
@@ -11,10 +11,14 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
     };
 
     const onSubmit = (e) => {
-        e.preventDefault();
-
         onEdit(task.id, text, day);
         setIsUserEdit(false);
+    };
+
+    const onCancelEdit = () => {
+        setIsUserEdit(false);
+        setText(task.text);
+        setDay(task.day);
     };
 
     if (isUserEdit) {
@@ -22,6 +26,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
             <div
                 className={`task ${task.reminder ? 'reminder' : ''}`}
                 onDoubleClick={() => onToggle(task.id)}
+                style={{ position: 'relative' }}
             >
                 <h3>
                     <input
@@ -34,20 +39,28 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                     <button
                         className='faCheck'
                         disabled={text === '' || day === ''}
-                        onClick={(e) => onSubmit(e)}
+                        onClick={() => onSubmit()}
                         style={{
                             position: 'absolute',
-                            right: '150px',
-                            transform: 'scale(1.45)',
+                            right: '60px',
+                            top: '13px',
+                            transform: 'scale(1.40)',
                         }}
                     >
                         <FaCheck />
                     </button>
                     <FaTimes
                         style={{
-                            color: 'red',
                             position: 'absolute',
-                            right: '125px',
+                            right: '35px',
+                            color: 'red',
+                        }}
+                        onClick={onCancelEdit}
+                    />
+                    <FaTrashAlt
+                        style={{
+                            position: 'absolute',
+                            right: '10px',
                         }}
                         onClick={() => onDelete(task.id)}
                     />
@@ -68,6 +81,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
             <div
                 className={`task ${task.reminder ? 'reminder' : ''}`}
                 onDoubleClick={() => onToggle(task.id)}
+                style={{ position: 'relative' }}
             >
                 <h3>
                     {task.text}{' '}
@@ -75,14 +89,13 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                         onClick={onPressEdit}
                         style={{
                             position: 'absolute',
-                            right: '150px',
+                            right: '35px',
                         }}
                     />
-                    <FaTimes
+                    <FaTrashAlt
                         style={{
-                            color: 'red',
                             position: 'absolute',
-                            right: '125px',
+                            right: '10px',
                         }}
                         onClick={() => onDelete(task.id)}
                     />
