@@ -13,19 +13,19 @@ const App = () => {
         {
             id: '1',
             text: 'Doc appointment',
-            day: 'Feb 5th at 2:30pm',
+            day: new Date(2018, 11, 24),
             reminder: false,
         },
         {
             id: '2',
             text: 'Meeting in school',
-            day: 'Oct 8th at 4:30pm',
+            day: new Date(2020, 12, 2),
             reminder: true,
         },
         {
             id: '3',
             text: 'shopping',
-            day: 'sep 14th at 10:00pm',
+            day: new Date(2021, 9, 23),
             reminder: true,
         },
     ]);
@@ -62,10 +62,10 @@ const App = () => {
     const addTask = (task) => {
         const newTask = { id: uuid(), ...task };
         setTasks([...tasks, newTask]);
+        setIsSort(false);
     };
 
     const changeShowAddTask = (showAddTaskValue = !showAddTask) => {
-        console.log(showAddTaskValue);
         setShowAddTask(showAddTaskValue);
     };
 

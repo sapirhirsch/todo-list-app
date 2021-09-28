@@ -1,10 +1,18 @@
 import { FaTimes, FaPen, FaCheck, FaTrashAlt } from 'react-icons/fa';
 import { useState } from 'react';
+import dateFormat from 'dateformat';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Task = ({ task, onDelete, onToggle, onEdit }) => {
     const [isUserEdit, setIsUserEdit] = useState(false);
     const [text, setText] = useState(task.text);
     const [day, setDay] = useState(task.day);
+    const options = {
+        weekday: 'long',
+        month: 'short',
+        day: 'numeric',
+    };
 
     const onPressEdit = () => {
         setIsUserEdit(!isUserEdit);
@@ -20,6 +28,10 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
         setIsUserEdit(false);
         setText(task.text);
         setDay(task.day);
+    };
+
+    const onDate = (date) => {
+        setDay(date);
     };
 
     if (isUserEdit) {
@@ -65,15 +77,19 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                         onClick={() => onDelete(task.id)}
                     />
                 </h3>
-                <h3>
-                    <input
-                        className='edit-p'
-                        type='text'
-                        placeholder='Add Day and Time'
-                        value={day}
-                        onChange={(e) => setDay(e.target.value)}
-                    ></input>
-                </h3>
+                <div className='edit-p'>
+                    <ReactDatePicker
+                        selected={day}
+                        onChange={(day) => onDate(day)}
+                        showTimeSelect
+                        timeFormat='HH:mm'
+                        timeIntervals={30}
+                        timeCaption='time'
+                        dateFormat='MMM d, yyyy h:mm aa'
+                        placeholderText='Add date'
+                        value={dateFormat(task.day, 'mmm d, yyyy h:mm TT')}
+                    />
+                </div>
             </div>
         );
     } else
@@ -101,7 +117,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                         onClick={() => onDelete(task.id)}
                     />
                 </h3>
-                <p>{task.day}</p>
+                <p>{dateFormat(task.day, 'dddd, mmm d, yyyy h:mm TT')}</p>
             </div>
         );
 };
