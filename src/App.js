@@ -4,9 +4,11 @@ import { useState } from 'react';
 import AddTask from './components/AddTask';
 import { v4 as uuid } from 'uuid';
 import ToolsBar from './components/ToolsBar';
+import { array } from 'prop-types';
 
 const App = () => {
     const [showAddTask, setShowAddTask] = useState(false);
+    const [isSort, setIsSort] = useState(false);
     const [tasks, setTasks] = useState([
         {
             id: '1',
@@ -74,6 +76,17 @@ const App = () => {
         items.splice(result.destination.index, 0, reorderedItem);
 
         setTasks(items);
+        setIsSort(false);
+    };
+
+    const sortTasksByABC = (sortDirection = true) => {
+        const tasksArray = Array.from(tasks);
+        tasksArray.sort((a, b) => a.text.localeCompare(b.text));
+        if (!sortDirection) {
+            tasksArray.reverse();
+        }
+        setTasks(tasksArray);
+        setIsSort(true);
     };
 
     const checkReminderValue = () => {
@@ -101,6 +114,8 @@ const App = () => {
                     tasksLength={tasks.length}
                     changeReminder={changeReminderToTasks}
                     reminderValue={checkReminderValue()}
+                    onSort={sortTasksByABC}
+                    isSort={isSort}
                 />
             )}
             {tasks.length === 0 ? (

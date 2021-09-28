@@ -27,7 +27,6 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
             <div
                 className={`task ${task.reminder ? 'reminder' : ''}`}
                 onDoubleClick={() => onToggle(task.id)}
-                style={{ position: 'relative' }}
             >
                 <h3>
                     <input
@@ -82,7 +81,6 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
             <div
                 className={`task ${task.reminder ? 'reminder' : ''}`}
                 onDoubleClick={() => onToggle(task.id)}
-                style={{ position: 'relative' }}
             >
                 <h3>
                     {task.text}{' '}
