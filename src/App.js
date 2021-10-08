@@ -1,9 +1,9 @@
-import Header from './components/Header';
-import Tasks from './components/Tasks';
+import Header from './components/Header/Header';
+import Tasks from './components/Tasks/Tasks';
 import { useState } from 'react';
-import AddTask from './components/AddTask';
+import AddTask from './components/Header/AddTask';
 import { v4 as uuid } from 'uuid';
-import ToolsBar from './components/ToolsBar';
+import ToolsBar from './components/ToolsBar/ToolsBar';
 import { array } from 'prop-types';
 
 const App = () => {
