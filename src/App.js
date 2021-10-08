@@ -89,6 +89,17 @@ const App = () => {
         setIsSort(true);
     };
 
+    const sortTasksByDate = (sortDirection = true) => {
+        const tasksArray1 = Array.from(tasks);
+        tasksArray1.sort((a, b) => a.day - b.day);
+        if (!sortDirection) {
+            tasksArray1.reverse();
+        }
+        const t = tasksArray1;
+        setTasks(tasksArray1);
+        setIsSort(true);
+    };
+
     const checkReminderValue = () => {
         let reminderValue = true;
         tasks.forEach((task) => {
@@ -114,7 +125,8 @@ const App = () => {
                     tasksLength={tasks.length}
                     changeReminder={changeReminderToTasks}
                     reminderValue={checkReminderValue()}
-                    onSort={sortTasksByABC}
+                    onSortAbc={sortTasksByABC}
+                    onSortDate={sortTasksByDate}
                     isSort={isSort}
                 />
             )}

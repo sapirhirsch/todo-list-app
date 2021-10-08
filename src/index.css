@@ -105,6 +105,16 @@ body {
   margin-bottom: 40px;
 }
 
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+}
+
 .form-control {
   margin: 20px 0;
 }

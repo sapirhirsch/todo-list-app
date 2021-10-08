@@ -6,14 +6,19 @@ const ToolsBar = ({
     tasksLength,
     changeReminder,
     reminderValue,
-    onSort,
+    onSortAbc,
+    onSortDate,
     isSort,
 }) => {
     return (
         <div className='tool-bar'>
             <h4>tasks: {tasksLength}</h4>
-            <p style={{ position: 'absolute', right: '20px', top: '10px' }}>
-                <SortByButton onSort={onSort} isSort={isSort} />
+            <p style={{ position: 'absolute', right: '50px', top: '10px' }}>
+                <SortByButton
+                    onSortAbc={onSortAbc}
+                    onSortDate={onSortDate}
+                    isSort={isSort}
+                />
             </p>
             <button
                 className='txt-button'

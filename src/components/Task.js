@@ -87,7 +87,6 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
                         timeCaption='time'
                         dateFormat='MMM d, yyyy h:mm aa'
                         placeholderText='Add date'
-                        value={dateFormat(task.day, 'mmm d, yyyy h:mm TT')}
                     />
                 </div>
             </div>
