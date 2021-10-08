@@ -65,16 +65,23 @@ const TaskOnEdit = ({ task, onDelete, onToggle, onEdit, onStopEdit }) => {
                     onClick={() => onDelete(task.id)}
                 />
             </h3>
-            <div className='edit-p'>
+            <div>
                 <ReactDatePicker
+                    className='edit-p'
                     selected={day}
                     onChange={(day) => onDate(day)}
-                    showTimeSelect
-                    timeFormat='HH:mm'
-                    timeIntervals={30}
-                    timeCaption='time'
+                    showTimeInput
                     dateFormat='MMM d, yyyy h:mm aa'
                     placeholderText='Add date'
+                    popperClassName='calendar-popout'
+                    popperModifiers={{
+                        offset: { enabled: true, offset: '5px, 10px' },
+                        preventOverflow: {
+                            enabled: true,
+                            escapeWithReference: false,
+                            boundariesElement: 'viewport',
+                        },
+                    }}
                 />
             </div>
         </div>

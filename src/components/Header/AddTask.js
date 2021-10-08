@@ -38,12 +38,10 @@ const AddTask = ({ onAdd, onSubmitForm }) => {
                 <ReactDatePicker
                     selected={day}
                     onChange={(day) => onDate(day)}
-                    showTimeSelect
-                    timeFormat='HH:mm'
-                    timeIntervals={30}
                     timeCaption='time'
                     dateFormat='MMM d, yyyy h:mm aa'
                     placeholderText='Add date'
+                    showTimeInput
                 />
             </div>
 

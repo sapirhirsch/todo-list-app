@@ -115,6 +115,11 @@ body {
   position: relative;
 }
 
+.task.calender {
+  height: 450px;
+  width: 450px;
+}
+
 .form-control {
   margin: 20px 0;
 }
@@ -133,7 +138,7 @@ body {
 
 .form-control-check {
   display: flex;
-  align-items: center;
+  align-items: right ;
   justify-content: space-between;
 }
 
@@ -159,7 +164,7 @@ body {
 }
 
 .edit-h3{
-  width: 80%;
+  width: 89%;
   height: 25px;
   margin: 5px;
   padding: 3px 7px;
@@ -180,4 +185,8 @@ body {
 footer {
   margin-top: 30px;
   text-align: center;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
 }
