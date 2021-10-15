@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from '../DatePicker';
 
 const AddTask = ({ onAdd, onSubmitForm }) => {
     const [text, setText] = useState('');
@@ -35,16 +35,8 @@ const AddTask = ({ onAdd, onSubmitForm }) => {
             </div>
             <div className='form-control'>
                 <label>Date</label>
-                <ReactDatePicker
-                    selected={day}
-                    onChange={(day) => onDate(day)}
-                    timeCaption='time'
-                    dateFormat='MMM d, yyyy h:mm aa'
-                    placeholderText='Add date'
-                    showTimeInput
-                />
+                <DatePicker day={day} onDate={onDate} />
             </div>
-
             <div className='form-control form-control-check'>
                 <label>Set Reminder</label>
                 <input
@@ -54,7 +46,6 @@ const AddTask = ({ onAdd, onSubmitForm }) => {
                     onChange={(e) => setReminder(e.currentTarget.checked)}
                 ></input>
             </div>
-
             <input
                 className='btn btn-block'
                 type='submit'

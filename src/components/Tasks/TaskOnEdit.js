@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaTimes, FaPen, FaCheck, FaTrashAlt } from 'react-icons/fa';
+import DatePicker from '../DatePicker';
 
 const TaskOnEdit = ({ task, onDelete, onToggle, onEdit, onStopEdit }) => {
     const [text, setText] = useState(task.text);
@@ -66,23 +66,7 @@ const TaskOnEdit = ({ task, onDelete, onToggle, onEdit, onStopEdit }) => {
                 />
             </h3>
             <div>
-                <ReactDatePicker
-                    className='edit-p'
-                    selected={day}
-                    onChange={(day) => onDate(day)}
-                    showTimeInput
-                    dateFormat='MMM d, yyyy h:mm aa'
-                    placeholderText='Add date'
-                    popperClassName='calendar-popout'
-                    popperModifiers={{
-                        offset: { enabled: true, offset: '5px, 10px' },
-                        preventOverflow: {
-                            enabled: true,
-                            escapeWithReference: false,
-                            boundariesElement: 'viewport',
-                        },
-                    }}
-                />
+                <DatePicker className='edit-p' day={day} onDate={onDate} />
             </div>
         </div>
     );

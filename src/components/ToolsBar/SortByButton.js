@@ -22,7 +22,6 @@ const SortByButton = ({ onSortAbc, onSortDate, isSort }) => {
         setIsDateSort(true);
         onSortDate(sortDateDirection);
         setSortDateDirection(!sortDateDirection);
-        const x = 'hey';
     };
 
     useEffect(() => {
@@ -34,11 +33,7 @@ const SortByButton = ({ onSortAbc, onSortDate, isSort }) => {
         }
     });
     return (
-        <div
-            style={{
-                display: 'flex',
-            }}
-        >
+        <div className={'sortButton'} style={{ display: 'flex' }}>
             <p>sort by: </p>
             <p
                 style={{
@@ -51,21 +46,13 @@ const SortByButton = ({ onSortAbc, onSortDate, isSort }) => {
                 abc
                 {isAbcSort ? (
                     sortAbcDirection ? (
-                        <IoMdArrowDropup
-                            style={{
-                                position: 'absolute',
-                                top: '5px',
-                                transform: 'scale(1.30)',
-                            }}
-                        />
+                        <p className={'sortButton arrow'}>
+                            <IoMdArrowDropup />
+                        </p>
                     ) : (
-                        <IoMdArrowDropdown
-                            style={{
-                                position: 'absolute',
-                                top: '5px',
-                                transform: 'scale(1.30)',
-                            }}
-                        />
+                        <p className={'sortButton arrow'}>
+                            <IoMdArrowDropdown className={'sortButton arrow'} />
+                        </p>
                     )
                 ) : (
                     ''
@@ -82,21 +69,13 @@ const SortByButton = ({ onSortAbc, onSortDate, isSort }) => {
                 date
                 {isDateSort ? (
                     sortDateDirection ? (
-                        <IoMdArrowDropup
-                            style={{
-                                position: 'absolute',
-                                top: '5px',
-                                transform: 'scale(1.30)',
-                            }}
-                        />
+                        <p className={'sortButton arrow'}>
+                            <IoMdArrowDropup className={'sortButton arrow'} />
+                        </p>
                     ) : (
-                        <IoMdArrowDropdown
-                            style={{
-                                position: 'absolute',
-                                top: '5px',
-                                transform: 'scale(1.30)',
-                            }}
-                        />
+                        <p className={'sortButton arrow'}>
+                            <IoMdArrowDropdown className={'sortButton arrow'} />
+                        </p>
                     )
                 ) : (
                     ''

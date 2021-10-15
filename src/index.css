@@ -164,7 +164,7 @@ body {
 }
 
 .edit-h3{
-  width: 89%;
+  width: 82%;
   height: 25px;
   margin: 5px;
   padding: 3px 7px;
@@ -182,11 +182,19 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.sortButton{
+  display: 'flex';
+}
+
+.arrow{
+  position: 'absolute';
+  top: '15px';
+  transform: 'scale(1.50)';
+  display: inline;
+}
+
 footer {
   margin-top: 30px;
   text-align: center;
 }
 
-.react-datepicker-popper {
-  z-index: 9999 !important;
-}
